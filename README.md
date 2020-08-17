@@ -1,27 +1,43 @@
-# TSDX Bootstrap
+# masa
 
-This project was bootstrapped with [TSDX](https://github.com/jaredpalmer/tsdx).
+masa is a small javascript library to format date in Indonesian language. It takes inspiration from [momentjs](https://github.com/moment/moment), but a lot smaller and with specific functionality for date formatting in Bahasa Indonesia.
 
-## Local Development
+masa adalah pustaka javascript sederhana untuk memformat tanggal dalam bahasa Indonesia. Pustaka ini mengambil inspirasi dari [momentjs](https://github.com/moment/moment), namun ukurannya jauh lebih kecil dengan fungsi spesifik untuk memformat tanggal.
 
-Below is a list of commands you will probably find useful.
+## Kenapa pustaka ini dibuat?
 
-### `npm start` or `yarn start`
+Memformat tanggal adalah hal yang cukup sering dilakukan oleh para developer, terutama frontend developer. Solusi yang sudah ada dan mungkin paling dikenal adalah [momentjs](https://github.com/moment/moment). Namun rasanya jika hanya sekedar untuk memformat tanggal, pustaka [momentjs](https://github.com/moment/moment) terlalu besar karena saking lengkapnya fitur yang tersedia, dan tentu saja ini akan menambah ukuran bundle aplikasi secara tidak perlu.
 
-Runs the project in development/watch mode. Your project will be rebuilt upon changes. TSDX has a special logger for you convenience. Error messages are pretty printed and formatted for compatibility VS Code's Problems tab.
+## Cara Penggunaan
 
-<img src="https://user-images.githubusercontent.com/4060187/52168303-574d3a00-26f6-11e9-9f3b-71dbec9ebfcb.gif" width="600" />
+```bash
+npm install masa
+```
 
-Your library will be rebuilt if you make edits.
+```javascript
+import { masa } from 'masa';
 
-### `npm run build` or `yarn build`
+// menampilkan tanggal hari ini dengan format default `D MMMM YYYY`
+masa().format(); // 17 Agustus 2020
+masa(new Date()).format(); // 17 Agustus 2020
 
-Bundles the package to the `dist` folder.
-The package is optimized and bundled with Rollup into multiple formats (CommonJS, UMD, and ES Module).
+masa('2020-02-02').format('D/M/YY'); // 2/2/20
 
-<img src="https://user-images.githubusercontent.com/4060187/52168322-a98e5b00-26f6-11e9-8cf6-222d716b75ef.gif" width="600" />
+masa(new Date('2020-11-15')).format('[hari] dddd, [tanggal] D MMMM YYYY'); // hari Minggu, tanggal 15 November 2020
+```
 
-### `npm test` or `yarn test`
+|         | Token | Output                                          |
+| ------: | ----- | ----------------------------------------------- |
+|    Hari | dd    | Mg Sn Sl Rb Km Jm Sb                            |
+|         | ddd   | Min Sen Sel Rab Kam Jum Sab                     |
+|         | dddd  | Minggu Senin Selasa Rabu Kamis Jumat Sabtu      |
+| Tanggal | D     | 1 2 3 ... 30 31                                 |
+|         | DD    | 01 02 03 ... 30 31                              |
+|   Bulan | M     | 1 2 3 ... 11 12                                 |
+|         | MM    | 01 02 03 ... 11 12                              |
+|         | MMM   | Jan Feb Mar Apr Mei Jun Jul Agt Sep Okt Nov Des |
+|         | MMMM  | Januari Februari Maret ... November Desember    |
+|   Tahun | YY    | 98 99 19 20                                     |
+|         | YYYY  | 1998 1999 2019 2020 1999                        |
 
-Runs the test watcher (Jest) in an interactive mode.
-By default, runs tests related to files changed since the last commit.
+Untuk kata yang ingin disisipkan kepada output bisa dimasukkan kedalam string format dengan diapit kurung siku, misal `[hari] dddd, [tanggal] D [bulan] MMMM [tahun] YYYY`

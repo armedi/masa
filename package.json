@@ -1,6 +1,7 @@
 {
   "version": "0.1.0",
   "name": "masa",
+  "description": "small library to format date in Indonesian language",
   "author": "Armedi",
   "license": "MIT",
   "homepage": "https://github.com/armedi/masa",
@@ -29,7 +30,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "lint": "tsdx lint",
+    "lint": "tsdx lint src",
     "prepare": "npm run build",
     "prepublishOnly": "npm run build"
   },

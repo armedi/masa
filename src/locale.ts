@@ -1,6 +1,12 @@
-import { Locale } from 'types';
+export interface Locale {
+  months: string[];
+  monthsShort: string[];
+  weekdays: string[];
+  weekdaysShort: string[];
+  weekdaysMin: string[];
+}
 
-export default {
+export const locale = {
   months: [
     'Januari',
     'Februari',
