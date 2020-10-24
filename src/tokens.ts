@@ -17,5 +17,11 @@ export const makeFormatTokenFunctions = (
     MMMM: date => localeData.months[date.getMonth()],
     YY: date => String(date.getFullYear()).slice(-2),
     YYYY: date => String(date.getFullYear()),
+    H: date => String(date.getHours()),
+    HH: date => String(date.getHours()).padStart(2, '0'),
+    m: date => String(date.getMinutes()),
+    mm: date => String(date.getMinutes()).padStart(2, '0'),
+    s: date => String(date.getSeconds()),
+    ss: date => String(date.getSeconds()).padStart(2, '0'),
   };
 };
