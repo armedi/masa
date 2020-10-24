@@ -71,8 +71,50 @@ describe('format year', () => {
   });
 });
 
+describe('format hour', () => {
+  const date = new Date('2020-10-24 08:05:07');
+  const shortHour = '8';
+  const hour = '08';
+
+  it('should format short hour correctly', () => {
+    expect(makeFormatFunction('H')(date)).toEqual(shortHour);
+  });
+
+  it('should format hour correctly', () => {
+    expect(makeFormatFunction('HH')(date)).toEqual(hour);
+  });
+});
+
+describe('format minute', () => {
+  const date = new Date('2020-10-24 08:05:07');
+  const shortMinute = '5';
+  const second = '05';
+
+  it('should format short minute correctly', () => {
+    expect(makeFormatFunction('m')(date)).toEqual(shortMinute);
+  });
+
+  it('should format minute correctly', () => {
+    expect(makeFormatFunction('mm')(date)).toEqual(second);
+  });
+});
+
+describe('format second', () => {
+  const date = new Date('2020-10-24 08:05:07');
+  const shortSecond = '7';
+  const second = '07';
+
+  it('should format short second correctly', () => {
+    expect(makeFormatFunction('s')(date)).toEqual(shortSecond);
+  });
+
+  it('should format second correctly', () => {
+    expect(makeFormatFunction('ss')(date)).toEqual(second);
+  });
+});
+
 describe('format with any combinations', () => {
-  const date = new Date('2020-08-17');
+  const date = new Date('2020-08-17 09:05:00');
 
   it('should format `DD-MM-YYYY` correctly', () => {
     expect(makeFormatFunction('DD-MM-YYYY')(date)).toEqual('17-08-2020');
@@ -86,5 +128,11 @@ describe('format with any combinations', () => {
     expect(makeFormatFunction('[hari] dddd, DD MMMM YYYY')(date)).toEqual(
       'hari Senin, 17 Agustus 2020'
     );
+  });
+
+  it('should format `[hari] dddd, DD-MM-YYY [pukul] HH:mm` correctly', () => {
+    expect(
+      makeFormatFunction('[hari] dddd, DD MMMM YYYY [pukul] HH:mm')(date)
+    ).toEqual('hari Senin, 17 Agustus 2020 pukul 09:05');
   });
 });

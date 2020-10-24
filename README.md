@@ -39,5 +39,11 @@ masa(new Date('2020-11-15')).format('[hari] dddd, [tanggal] D MMMM YYYY'); // ha
 |         | MMMM  | Januari Februari Maret ... November Desember    |
 |   Tahun | YY    | 98 99 19 20                                     |
 |         | YYYY  | 1998 1999 2019 2020 1999                        |
+|     Jam | H     | 0 1 2 ... 22 23                                 |
+|         | HH    | 00 01 02 ... 22 23                              |
+|   Menit | m     | 0 1 2 ... 58 59                                 |
+|         | mm    | 00 01 02 ... 58 59                              |
+|   Detik | s     | 0 1 2 ... 58 59                                 |
+|         | ss    | 00 01 02 ... 58 59                              |
 
 Untuk kata yang ingin disisipkan kepada output bisa dimasukkan kedalam string format dengan diapit kurung siku, misal `[hari] dddd, [tanggal] D [bulan] MMMM [tahun] YYYY`
