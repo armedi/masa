@@ -6,7 +6,7 @@ export interface Locale {
   weekdaysMin: string[];
 }
 
-export const locale = {
+export const locale: Locale = {
   months: [
     'Januari',
     'Februari',
@@ -38,4 +38,4 @@ export const locale = {
   weekdays: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
   weekdaysShort: ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
   weekdaysMin: ['Mg', 'Sn', 'Sl', 'Rb', 'Km', 'Jm', 'Sb'],
-} as Locale;
+};

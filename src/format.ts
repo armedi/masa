@@ -18,7 +18,7 @@ export const makeFormatFunction = (
   format: string
 ): ((date: Date) => string) => {
   const tokens = format.match(formattingTokens) || [];
-  const fns = tokens.map(token => {
+  const fns = tokens.map((token) => {
     if (formatTokenFunctions[token]) {
       return formatTokenFunctions[token];
     } else {
@@ -26,5 +26,5 @@ export const makeFormatFunction = (
     }
   });
 
-  return date => fns.map(fn => fn(date)).join('');
+  return (date) => fns.map((fn) => fn(date)).join('');
 };
